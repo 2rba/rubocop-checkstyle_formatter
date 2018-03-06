@@ -8,11 +8,13 @@ phases:
   pre_build:
     commands:
       - echo pre_build phase
-      - bundle install
   build:
     commands:
       - echo build phase
-      - bundle exec rake spec
+      - BUNDLE_GEMFILE=gemfiles/rubocop_0.40.0.gemfile bundle install
+      - BUNDLE_GEMFILE=gemfiles/rubocop_0.40.0.gemfile bundle exec rake spec
+      - BUNDLE_GEMFILE=gemfiles/rubocop_0.42.0.gemfile bundle install
+      - BUNDLE_GEMFILE=gemfiles/rubocop_0.42.0.gemfile bundle exec rake spec
   post_build:
     commands:
       - echo post_bulid phase

@@ -1,0 +1,19 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo install phase
+      - gem update --remote bundler
+  pre_build:
+    commands:
+      - echo pre_build phase
+      - bundle install
+  build:
+    commands:
+      - echo build phase
+      - bundle exec rake spec
+  post_build:
+    commands:
+      - echo post_bulid phase
+
